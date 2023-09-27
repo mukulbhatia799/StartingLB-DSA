@@ -12,6 +12,7 @@ void decimaltobinaryconversion(int n)
         vec.push_back(mod);
         n /= 2;
     }
+    
     for(int i = vec.size()-1; i >= 0; i--)
     {
         cout << vec[i];
