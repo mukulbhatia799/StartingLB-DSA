@@ -5,39 +5,37 @@ int main() {
     int n;
     cin >> n;
 
-    // initialize n with even number only.
-    // if odd is taken then n-1 will be printed.
-    int stars = 1, space = n/2;
-    for(int i = 1; i <= n; i++)
+    for(int i = 1; i <= n/2; i++)
     {
-        // spaces
-        for(int j = 1; j < space; j++)
+        for(int j = i; j <= n/2; j++)
+        {
+            cout << "* ";
+        }
+        for(int j = 1; j <= 2*i-1; j++)
         {
             cout << "  ";
         }
-        // stars
-        for(int j = 1; j <= stars; j++)
+        for(int j = i; j <= n/2; j++)
         {
-            if(j == 1 || j == stars)
-                cout << "* ";
-            else 
-                cout << "  ";
+            cout << "* ";
         }
         cout << endl;
-        if(i >= n/2)
+    }
+    for(int i = 1; i <= n/2; i++)
+    {
+        for(int j = 1; j <= i; j++)
         {
-            if(i == n/2) continue;
-            else 
-            {
-                space++;
-                stars -= 2;
-            }
+            cout << "* ";
         }
-        else
+        for(int j = 1; j <= 2*((n/2)-i+1)-1; j++)
         {
-            space--;
-            stars += 2;
+            cout << "  ";
         }
+        for(int j = 1; j <= i; j++)
+        {
+            cout << "* ";
+        }
+        cout << endl;
     }
 
     return 0;
