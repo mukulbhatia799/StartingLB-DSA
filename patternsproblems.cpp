@@ -7,12 +7,10 @@ int main() {
 
     for(int i = 1; i <= n; i++)
     {
-        char c = 'A';
-        for(int j = 1; j <= 2*i-1; j++)
+        for(int j = 1; j <= n; j++)
         {
-            cout << c << " ";
-            if(j < (2*i)/2) c++;
-            else c--;
+            if(i == 1 || j == 1 || j == n || i == n || ((i == n/2 || i == n/2+1) && (j == n/2 || j == n/2+1))) cout << "* ";
+            else cout << "  ";
         }
         cout << endl;
     }
