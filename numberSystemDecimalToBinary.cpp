@@ -1,46 +1,29 @@
 #include<iostream>
-#include<vector>
-#include<cmath>
 using namespace std;
 
-void decimaltobinaryconversion(int n)
-{
-    vector<int> vec;
-    while(n != 0)
-    {
-        int mod = n % 2;
-        vec.push_back(mod);
-        n /= 2;
-    }
-    
-    for(int i = vec.size()-1; i >= 0; i--)
-    {
-        cout << vec[i];
-    }
-    cout << endl;
-}
-
-void binarytodecimalconversion(string s)
-{
-    int ans = 0;
-    for(int i = s.length()-1; i >= 0; i--)
-    {
-        if(s[i] == '1') 
-            ans += pow(2, s.length()-i-1);
-    }
-    cout << ans << endl;
-}
-
 int main(){
-    int n;
-    cin >> n;
+    int n = 10;
 
-    decimaltobinaryconversion(n);
+    /*
+    '<<' or '>>' shifts the bits by the given number of times.
+    << means left shift.
+    >> means right shift.
 
-    string s;
-    cin >> s;
+    if left shift then the number is multiplied by the pow(2, value).
+    like (10 << 1) will give ans 10 * 2^1 = 20.
+    same as (10 << 3) will give ans 10 * 2^3 = 80.
 
-    binarytodecimalconversion(s);
+    
+    */
+
+    cout << (n << 1) << endl;   
+    cout << (n << 2) << endl;
+    cout << (n << 3) << endl;
+    cout << (n << 4) << endl;
+    cout << (n << 5) << endl;
+    cout << (n << 6) << endl;
+
+
 
     return 0;
 }
