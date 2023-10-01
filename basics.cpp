@@ -1,32 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void convertdecimaltobinary(int n)
+class Node
 {
-    string ans = "";
-
-    while(n != 0)
+public:
+    int data;
+    Node* next;
+    Node(int data)
     {
-        ans = to_string(n%2) + ans;
-        n /= 2;
+        this->data = data;
+        
     }
-    for(int i = 0; i < ans.length(); i++)
+    void display(Node* head)
     {
-        cout << ans[i];
+        Node* temp = head;
+        while(temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
     }
-    cout << endl;
-}
+};
 
 int main(){
-    
-    int n;
-    cin >> n;
+    Node* first = new Node(10);
+    Node* second = new Node(20);
+    Node* third = new Node(30);
+    Node* fourth = new Node(40);
 
-    convertdecimaltobinary(n);
+    first->next = second;
+    second->next = third;
+    third->next = fourth;
+    fourth->next = NULL;
+
+    first->display(first);    
 
     return 0;
 }
-
-// first make string variable where the bits will be stored.
-// add the bit in front of the string using + operator.
-// and divide n by 2 in each iteration.
