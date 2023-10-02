@@ -1,24 +1,69 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
- 
+
 class Node
 {
-public:
     int data;
     Node* next;
-    Node()
-    {
+    Node* head;
+public:
+    Node(){
         this->data = 0;
         this->next = NULL;
+        this->head = NULL;
     }
-    Node(int data)
+    void insertNode()
     {
-        this->data = data;
-        
+        Node* newNode = new Node;
+        cout << "\tInsert value: ";
+        cin >> newNode->data;
+
+        if(head == NULL)
+        {
+            newNode->next = NULL;
+            head = newNode;
+        }
+        else 
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        cout << "\t****Inserted :)****" << endl;
     }
+
+    void deleteNode()
+    {
+        if(head == NULL) 
+        {
+            cout << "\t****No node to delete!!!****" << endl;
+            return ;
+        }
+        Node* ptr = head;
+        int delNode;
+        cout << "\tEnter deleting node: ";
+        cin >> delNode;
+        if(delNode == 1) head = head->next;
+        else 
+        {
+            while(delNode > 2)
+            {
+                ptr = ptr->next;
+                delNode--;
+            }
+            ptr->next = ptr->next->next;
+        }
+        cout << "\t****Deleted :)****" << endl;
+    }
+
     void display()
     {
-        Node* temp = this;
+        if(head == NULL)
+        {
+            cout << "\t****Linked List is empty!!!****" << endl;
+            return ;
+        }
+        cout << "Displaying Linked List: ";
+        Node* temp = head;
         while(temp != NULL)
         {
             cout << temp->data << " ";
@@ -26,29 +71,37 @@ public:
         }
         cout << endl;
     }
+    
+    
 };
 
 int main(){
-    Node* first = new Node(10);
-    Node* second = new Node(20);
-    Node* third = new Node(30);
-    Node* fourth = new Node(40);
+    Node obj;
 
-    first->next = second;
-    second->next = third;
-    third->next = fourth;
-    fourth->next = NULL;
-
-    cout << "New display: ";
-    first->display();  
-
-    Node* fifth = new Node;
-    fourth->next = fifth;
-    fifth->next = NULL;
-
-    cout << "New display: ";
-
-    first->display();
+    char ch;
+    do {
+        cout << "\t==============================" << endl;
+        cout << "\n1. Insert\n2. Delete\n3. Display\n4. Exit" << endl;
+        cout << "\nEnter choice: ";
+        cin >> ch;
+        switch(ch) {
+            case '1':
+                obj.insertNode();
+                break;
+            case '2':
+                obj.deleteNode();
+                break;
+            case '3':
+                obj.display();
+                break;
+            case '4':
+                cout << "Bye :)" << endl;
+                break;
+            default:
+                cout << "Enter valid input!!!" << endl;
+                break;
+        }
+    }while(ch != '4');
 
     return 0;
 }
