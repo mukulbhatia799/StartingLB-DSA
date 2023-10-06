@@ -5,15 +5,17 @@ int main(){
     int n;
     cin >> n;
 
-    for(int i = 0; i < n; i++)
+    for(int i = 1; i <= n; i++)
     {
-        for(int j = 0; j <= i; j++)
+        for(int j = 1; j <= n-i; j++)
+            cout << "  ";
+        int j = 1, num = 1;
+        while(j <= 2*i-1)
         {
-            if(j == 0 || j == i || i == n-1) {
-                cout << j+1 << " ";
-            }
-            else 
-                cout << "  ";
+            cout << num << " ";
+            if(j < i) num++;
+            else num--;
+            j++;
         }
         cout << endl;
     }
