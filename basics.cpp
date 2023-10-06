@@ -2,19 +2,20 @@
 using namespace std;
 
 int main(){
-    int no;
-    cout << "Enter number of digits: ";
-    cin >> no;
+    int n;
+    cin >> n;
 
-    int j = 0, ans = 0;
-    for(int i = 0; i < no; i++)
+    vector<int> vec;
+    while(n)
     {
-        int digit;
-        cin >> digit;
-        ans = ans*10 + digit;
-        j++;
+        int mod = n % 10;
+        n /= 10;
+        vec.push_back(mod);
     }
-    cout << ans << endl;
+    cout << "all digits are: ";
+    for(int i = vec.size()-1; i >= 0; i--)
+        cout << vec[i] << " ";
+    cout << endl;
 
     return 0;
 }
