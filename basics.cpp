@@ -2,21 +2,18 @@
 using namespace std;
 
 int main(){
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
-    int pow2 = 1;
-    int ans = 0;
+    int count = 0;
     while(n)
     {
-        int checkbit = n & 1;
-        if(checkbit == 1 || k == 0) ans += pow2;
-        pow2 *= 2;
+        int lastbit = n & 1;
+        if(lastbit == 1) count++;
         n = n >> 1;
-        k--;
     }
 
-    cout << ans << endl;
+    cout << count << endl;
 
     return 0;
 }
