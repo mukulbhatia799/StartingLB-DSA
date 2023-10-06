@@ -2,18 +2,19 @@
 using namespace std;
 
 int main(){
-    int n;
-    cin >> n;
+    int no;
+    cout << "Enter number of digits: ";
+    cin >> no;
 
-    int count = 0;
-    while(n)
+    int j = 0, ans = 0;
+    for(int i = 0; i < no; i++)
     {
-        int lastbit = n & 1;
-        if(lastbit == 1) count++;
-        n = n >> 1;
+        int digit;
+        cin >> digit;
+        ans = ans*10 + digit;
+        j++;
     }
-
-    cout << count << endl;
+    cout << ans << endl;
 
     return 0;
 }
