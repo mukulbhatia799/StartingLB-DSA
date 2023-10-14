@@ -1,40 +1,28 @@
-// expreme print in an array.
-// eg: 10 20 30 40 50 60.
-// output:- 10 60 20 50 30 40.
+// find unique element in an array(where all elements have 1 occurence except 1 element. Find that element.).
 
 #include<iostream>
 using namespace std;
 
-void extremePrint(int arr[], int n)
+int findUnique(int arr[], int n)
 {
-    int low = 0, high = n-1;
-    while(low <= high)
+    int XOR = 0;
+    for(int i = 0; i < n; i++)
     {
-        if(low == high) {
-            cout << arr[low] << endl;
-            return ;
-        }
-        cout << arr[low] << " ";
-        cout << arr[high] << " ";
-        low++;
-        high--;
+        XOR ^= arr[i];
     }
-    cout << endl;
+    return XOR;
 }
 
 int main(){
-    int n;
+    int n;  // n should be odd as 2*(number of occ.) + 1 unique element.
     cin >> n;
 
     int arr[n];
     for(int i = 0; i < n; i++)
-    {
         cin >> arr[i];
-    }
-    cout << endl;
-
-    cout << "new array: " << endl;
-    extremePrint(arr, n); 
+    
+    int unique = findUnique(arr, n);
+    cout << "unique element is " << unique << endl;
 
     return 0;
 }
