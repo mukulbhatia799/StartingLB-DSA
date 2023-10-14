@@ -8,7 +8,8 @@ void countSetBits(int n)
     int count1 = 0;
     while(n)
     {
-        int bit = n % 2;
+        // int bit = n % 2; // if last bit is 1 than store 1.
+        int bit = n & 1;    // if last bit is 1 than the bit variable will store 1.
         if(bit == 1) count1++;
         n = n >> 1;
     }
