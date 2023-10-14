@@ -1,69 +1,42 @@
-// sort 0's and 1's
-
+// right shift an array by 1.
+// input:  1 2 3 4 5 6
+// output: 6 1 2 3 4 5
 #include<iostream>
 using namespace std;
 
-void sort0sand1s(int arr[], int n)
+void rightShiftAnArrayBy1(int arr[], int n)
 {
-    // using 2 pointers approach.
-    int left = 0, right = n-1;
-    while(left <= right)
+    int left = 0, right = n-2;
+    // first swap the elments from 0th to n-1 elements.
+    while(left < right)
     {
-        while(left <= right)    // loop till 1 is not found from left.
-        {
-            if(arr[left] == 1) break;
-            left++;
-        }
-        while(right >= left)    // loop till 0 is not found from right.
-        {
-            if(arr[right] == 0) break;
-            right--;
-        }
-        if(arr[left] == 1 && arr[right] == 0)   // check whether on both side we found 0 and 1 or not.
-        {
-            swap(arr[left], arr[right]);    
-        }
+        swap(arr[left], arr[right]);
         left++;
-        right--;    // As, current left and right pointer indexes are swapped. So just increment and decrement the pointers.
+        right--;
     }
-
-    for(int i = 0; i < n; i++)
+    // now, reverse the array
+    left = 0, right = n-1;
+    while(left < right)
     {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
-int sort0sand1sInNcomplexity(int arr[], int n)
-{
-    int count1s = 0;    // just count the number of occ. of 1s in an array and write those number of 1s at the last of the array.
-    for(int i = 0; i < n; i++)
-    {
-        if(arr[i] == 1) count1s++;
-    }
-    for(int i = 0; i < n-count1s; i++)
-    {
-        cout << 0 << " ";
-    }
-    for(int i = 0; i < count1s; i++)
-    {
-        cout << 1 << " ";
+        swap(arr[left], arr[right]);
+        left++;
+        right--;
     }
 }
 
 int main(){
-    int n; 
+    int n;
     cin >> n;
 
     int arr[n];
-    cout << "Enter only 0's and 1's: ";
+    cout << "input array: ";
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+    rightShiftAnArrayBy1(arr, n);
+
+    cout << "After shifting: "; 
     for(int i = 0; i < n; i++)
-        cin >> arr[i];
-    
-    sort0sand1s(arr, n);
-    // sort0sand1sInNcomplexity(arr, n);
+        cout << arr[i] << " ";
 
     return 0;
 }
-
-
