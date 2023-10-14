@@ -1,17 +1,14 @@
-// min number in a sorted array.
+// reverse an array.
 
 #include<iostream>
-#include<climits>
 using namespace std;
 
-int findMinEle(int arr[], int n)
+void reverseAnArray(int arr[], int n)
 {
-    int x = INT_MAX;
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < n/2; i++)
     {
-        x = min(arr[i], x);
+        swap(arr[i], arr[n-i-1]);
     }
-    return x;
 }
 
 int main(){
@@ -24,7 +21,12 @@ int main(){
         cin >> arr[i];
     }
 
-    cout << "Min value in list: " << findMinEle(arr, n) << endl;
+    reverseAnArray(arr, n);
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }    
 
     return 0;
 }
