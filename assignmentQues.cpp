@@ -1,23 +1,32 @@
 #include<iostream>
 using namespace std;
 
-void printAllPermutations(int arr[], int n)
+void printTripletPermutations(int arr[], int n)
 {
     for(int i = 0; i < n; i++)
     {
         for(int j = 0; j < n; j++)
         {
-            cout << "{" << arr[i] << ", " << arr[j] << "}" << endl;
+            for(int k = 0; k < n; k++)
+            {
+                cout << "{" << arr[i] << ", " << arr[j] << ", " << arr[k] << "} ";
+            }
+            cout << endl;
         }
         cout << endl;
     }
 }
 
 int main(){
-    int arr[]={10, 20, 30};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    cin >> n;
 
-    printAllPermutations(arr, n);
+    int arr[n];
+    for(int i = 0; i < n; i++) 
+        cin >> arr[i];
+
+    printTripletPermutations(arr, n);
+
 
     return 0;
 }
