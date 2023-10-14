@@ -1,53 +1,25 @@
-// right shift an array by k.
-// input:  1 2 3 4 5 6
-// k = 3
-// output: 4 5 6 1 2 3
+// count set bits;
+
 #include<iostream>
 using namespace std;
 
-void rightShiftByKElements(int arr[], int n, int k)
+void countSetBits(int n)
 {
-    k = k % n;      // this statment will be beneficial when the number of shift is greater than the number of elements because w know that after every n rounds the array will be as same as know. so, thatswhy we are taking mod of that k number.
-
-    // reverse the left array.
-    int left = 0, right = n - k - 1;
-    while(left < right)
+    int count1 = 0;
+    while(n)
     {
-        swap(arr[left], arr[right]);
-        left++;
-        right--;
+        int bit = n % 2;
+        if(bit == 1) count1++;
+        n = n >> 1;
     }
-    // reverse the right array
-    left = n - k, right = n-1;
-    while(left < right)
-    {
-        swap(arr[left], arr[right]);
-        left++;
-        right--;
-    }
-    // reverse the whole array
-    left = 0, right = n-1;
-    while(left < right)
-    {
-        swap(arr[left], arr[right]);
-        left++;
-        right--;
-    }
+    cout << "Count of set bits in number " << n << " is " << count1 << endl;
 }
 
 int main(){
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
-    int arr[n];
-    cout << "input array: ";
-    for(int i = 0; i < n; i++) cin >> arr[i];
-
-    rightShiftByKElements(arr, n, k);
-
-    cout << "After shifting: "; 
-    for(int i = 0; i < n; i++)
-        cout << arr[i] << " ";
+    countSetBits(n);
 
     return 0;
 }
