@@ -1,26 +1,36 @@
-// count set bits;
-
 #include<iostream>
+#include<vector>
+#include<map>
+#include<unordered_map>
 using namespace std;
 
-void countSetBits(int n)
+pair<int, int> findsum(int n, int target)
 {
-    int count1 = 0;
-    while(n)
+    unordered_map<int, int> mpp;
+    int val;
+    for(int i = 0; i < n; i++)
     {
-        // int bit = n % 2; // if last bit is 1 than store 1.
-        int bit = n & 1;    // if last bit is 1 than the bit variable will store 1.
-        if(bit == 1) count1++;
-        n = n >> 1;
+        cin >> val;
+        mpp[val] = i;
     }
-    cout << "Count of set bits in number " << n << " is " << count1 << endl;
+    for(auto it = mpp.begin(); it != mpp.end(); it++)
+    {
+        int comp = target - (it->first);
+        auto found = mpp.find(comp);
+        if(found != mpp.end())
+        {
+            return {it->second, found->second};
+        }
+    }
 }
 
 int main(){
-    int n;
-    cin >> n;
+    int n, target;
+    cin >> n >> target;
 
-    countSetBits(n);
+    pair<int, int> prr = findsum(n, target);
 
+    cout << "value found at index {" << prr.first << ", " << prr.second << "}." << endl;
+    
     return 0;
 }
