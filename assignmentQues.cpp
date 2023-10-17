@@ -1,44 +1,21 @@
-// // sort colors - implemented using 3 pointers approach.
+// missing number in an array where elements in the range [0, n].
 #include<bits/stdc++.h>
 using namespace std;
-// eg:  2 1 0 2 2 1 0 0 2 0 0
-void sortColorsInPlace(int arr[], int n)
-{
-    int low = 0, mid = 0, high = n-1;
-    while(mid <= high)
-    {
-        if(arr[mid] == 0)
-        {
-            swap(arr[mid], arr[low]);
-            low++;
-            mid++;
-        } 
-        else if(arr[mid] == 1)
-        {
-            mid++;
-        }
-        else if(arr[mid] == 2)
-        {
-            swap(arr[mid], arr[high]);
-            high--;
-        }
-    }
-}
 
 int main(){
-    int n;
-    cin >> n;
+    // int arr[]={1, 3, 2};
+    // int arr[]={0, 3, 2, 4};
+    int arr[]={0, 4, 2, 3, 1};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int sum = size*(size+1) / 2;
 
-    int arr[n];
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < size; i++)
     {
-        cin >> arr[i];
+        sum -= arr[i];
     }
-    sortColorsInPlace(arr, n);
 
-    cout << "after sorting: ";
-    for(int i = 0; i < n; i++) cout << arr[i] << " ";
-    cout << endl;
+    cout << "Missing value is " << sum << endl;
+
 
     return 0;
 }
