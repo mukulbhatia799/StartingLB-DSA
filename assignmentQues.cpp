@@ -1,20 +1,30 @@
-// missing number in an array where elements in the range [0, n].
+// move all -ve number to the left side of an array.
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-    // int arr[]={1, 3, 2};
-    // int arr[]={0, 3, 2, 4};
-    int arr[]={0, 4, 2, 3, 1};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int sum = size*(size+1) / 2;
-
-    for(int i = 0; i < size; i++)
+void moveAllNegativeNumberToLeft(int arr[], int n)
+{
+    int ptr = 0;
+    for(int i = 0; i < n; i++)
     {
-        sum -= arr[i];
+        if(arr[i] < 0) {
+            swap(arr[i], arr[ptr]);
+            ptr++;
+        }
     }
+}
 
-    cout << "Missing value is " << sum << endl;
+int main(){
+    int n;
+    cin >> n;
+
+    int arr[n];
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+    moveAllNegativeNumberToLeft(arr, n);
+
+    cout << "After func. call: ";
+    for(int i = 0; i < n; i++) cout << arr[i] << " ";
 
 
     return 0;
