@@ -1,26 +1,28 @@
-// find pivot index:- find the index where the exact left and exact right sum is equal without including the pivot index.
-// If pivot index not found than return -1.
+// // sort colors - implemented using 3 pointers approach.
 #include<bits/stdc++.h>
 using namespace std;
-
-int findPivotIndex(int arr[], int n)
+// eg:  2 1 0 2 2 1 0 0 2 0 0
+void sortColorsInPlace(int arr[], int n)
 {
-    int sum = 0;
-    for(int i = 0; i < n; i++)
+    int low = 0, mid = 0, high = n-1;
+    while(mid <= high)
     {
-        sum += arr[i];
-    }
-
-    int leftsum = 0, rightsum = sum;
-    for(int i = 0; i < n; i++)
-    {
-        if(i > 0) {
-            leftsum += arr[i-1];
+        if(arr[mid] == 0)
+        {
+            swap(arr[mid], arr[low]);
+            low++;
+            mid++;
+        } 
+        else if(arr[mid] == 1)
+        {
+            mid++;
         }
-        rightsum -= arr[i];
-        if(leftsum == rightsum) return i;
+        else if(arr[mid] == 2)
+        {
+            swap(arr[mid], arr[high]);
+            high--;
+        }
     }
-    return -1;
 }
 
 int main(){
@@ -32,10 +34,11 @@ int main(){
     {
         cin >> arr[i];
     }
+    sortColorsInPlace(arr, n);
 
-    int ans = findPivotIndex(arr, n);
-
-    cout << ans << endl;
+    cout << "after sorting: ";
+    for(int i = 0; i < n; i++) cout << arr[i] << " ";
+    cout << endl;
 
     return 0;
 }
