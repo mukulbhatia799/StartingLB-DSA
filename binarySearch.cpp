@@ -1,5 +1,21 @@
-// find missing element in a sorted array.
-// Elements range is [1, N].
+// Find Peak Index in a Mountain Array.
+// leetcode problem
+
+/*
+
+    This ques can be done using linear search with Time Complexity O(n).
+    But using binary search we can solve this ques in O(logn) time complexity.
+
+    ***The key point in this ques is that first the array will be in increasing order
+    and after the peak index it starts decreasing.***
+
+    So, the intution is when the arr[mid] element is greater than its next element, 
+    move high = mid;
+
+
+    **extra**   When low and high diff. is 1 then mid = (low+high)/2 = low.
+
+*/
 
 #include<iostream>
 #include<climits>
@@ -15,40 +31,35 @@
 
 using namespace std;
 
-/*
 
-   eg: 1 2 3 4 6 7 8 9
-index: 0 1 2 3 4 5 6 7
-As we can see, each value should be at element-1 index. So we just have to check 
-from where the element and its index difference are not 1.
-
-*/
-int findMissingElement(int* arr, int n)
+int findPeakElementIndex(int* arr, int n)
 {
-    int low = 0, high = n-1, ans = -1;
-    while(low <= high)
+    int low = 0, high = n-1;
+    int mid;
+    while(low < high)           // We will not take low <= high because last element will be our peak element.
     {
-        int mid = low + (high - low)/2;
-        if(arr[mid]-mid != 1)
+        mid = low + (high - low) / 2;   // same as mid = (low + high) / 2;
+        cout << "low: " << low << " high: " << high << " mid: " << mid << endl;
+        if(arr[mid] < arr[mid+1])
         {
-            ans = mid+1;
-            high = mid-1;
+            low = mid + 1;
         }
         else {
-            low = mid+1;
+            high = mid;
         }
     }
-    return ans;
+    return low;
 }
 
 int main(){
-    int n = 8;
-    int arr[n]={1, 2, 3, 4, 6, 7, 8, 9};    // Here missing element is 5.
+    int n;
+    cin >> n;
+    int arr[n];
 
-    int missingele = findMissingElement(arr, n);
+    for(int i = 0; i < n; i++) cin >> arr[i];
 
-    if(missingele == -1) cout << "Missing element not found" << endl;
-    else cout << "Missing element is " << missingele << endl;
+    int index = findPeakElementIndex(arr, n);
+    cout << "peak element index: " << arr[index] << endl;
     
     return 0;
 }
