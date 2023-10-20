@@ -1,33 +1,25 @@
-// ques link: https://practice.geeksforgeeks.org/problems/first-repeating-element4018/1
-
-#include<bits/stdc++.h>
+#include<iostream>
+#include<climits>
 using namespace std;
 
-int firstRepeatingElement(int arr[], int n)
+void maxSubArray(int arr[], int n)
 {
-    unordered_map<int, int> mpp;
-
+    int sum = 0;
+    int maxsum = INT_MIN;
     for(int i = 0; i < n; i++)
     {
-        mpp[arr[i]]++;
+        sum = max(arr[i], arr[i]+sum);
+        maxsum = max(maxsum, sum);
     }
-
-    for(int i = 0; i < n; i++)
-    {
-        if(mpp[arr[i]] > 1) return i+1;
-    }
-
-    return -1;  // If none of the values is repeating.
+    cout << "Max subarray sum is " << maxsum << endl;
 }
 
 int main(){
-    int n = 7;
 
-    int arr[n] = {1, 5, 3, 4, 3, 5, 6};
+    int arr[8]={-1, -2, -8, -3, -6, -8, -5, -8};
+    int n = 8;
 
-    int index1based = firstRepeatingElement(arr, n);
-
-    cout << "Index of the first repeating element: " << index1based << endl;
+    maxSubArray(arr, n);
 
     return 0;
 }
