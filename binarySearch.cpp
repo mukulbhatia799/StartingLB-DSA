@@ -1,49 +1,38 @@
-#include<iostream>
-#include<climits>
-#include<math.h>
-#include<cmath>
-#include<algorithm>
-#include<vector>
-#include<map>
-#include<unordered_map>
-#include<set>
-#include<unordered_set>
-#include<iomanip>
+/*
+Find the integer root of any number.
+Eg: root of 45 is 6.X something. But return 6 as answer. root of 63 is 7.X. but return 7 as answer.
 
+approach 1: we run a loop from i=2 to n/2 to find the sq. root of any number. Time complexity is O(n/2) -> O(n).
+approach 2: Binary search approach. run a while loop and everytime take mid value of range [2, n/2] then update low and high accordingly. Time Complexity O(logn).
+*/ 
+
+#include<iostream>
 using namespace std;
 
-void printDiagonals(vector<vector<int>> arr, int size)
+void findsquareroot(int n)
 {
-    int j = 0;
-    cout << "1st diagonal: ";
-    for(int i = 0; i < size; i++)
+    int low = 2, high = n/2, ans = -1;
+    while(high-low > 1)
     {
-        cout << arr[i][i] << " ";
+        int mid = (low + high)/2;
+        if(mid*mid < n) {
+            ans = mid;
+            low = mid;
+        }
+        else {
+            high = mid;
+        }
     }
-    cout << endl;
-    cout << "2nd diagonal: ";
-    for(int i = 0; i < size; i++)
-    {
-        cout << arr[i][size-i-1] << " ";
-    }
+    if(low*low == n) ans = low;
+    else if(high*high == n) ans = high;
+    cout << "So root of " << n << " is " << ans << endl;
 }
-
 
 int main(){
     int n;
-    cout << "Enter n*n matrix size: ";
     cin >> n;
 
-    vector<vector<int>> vec(n, vector<int>(n));
-    for(int i = 0; i < n; i++)
-    {
-        for(int j = 0; j < n; j++)
-        {
-            cin >> vec[i][j];
-        }
-    }
+    findsquareroot(n);
 
-    printDiagonals(vec,n);
-    
     return 0;
 }
