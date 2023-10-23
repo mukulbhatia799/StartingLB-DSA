@@ -1,38 +1,42 @@
-/*
-Find the integer root of any number.
-Eg: root of 45 is 6.X something. But return 6 as answer. root of 63 is 7.X. but return 7 as answer.
-
-approach 1: we run a loop from i=2 to n/2 to find the sq. root of any number. Time complexity is O(n/2) -> O(n).
-approach 2: Binary search approach. run a while loop and everytime take mid value of range [2, n/2] then update low and high accordingly. Time Complexity O(logn).
-*/ 
-
+// find the pivot index in rotated and sorted array means from where the sorted array break or last sorted element.
+// eg: 50 60 10 20 30 40
 #include<iostream>
 using namespace std;
 
-void findsquareroot(int n)
+/* 
+using binary search algorithm we can solve this ques in O(logn) time complexity.
+Approach is first store the greater element from 0th and (n-1)th index in ans variable and then apply binary search.
+*/
+int findPivotIndex(int* arr, int n)
 {
-    int low = 2, high = n/2, ans = -1;
-    while(high-low > 1)
+    int low = 0, high = n-1;
+    int ans = (arr[0] > arr[n-1])? arr[0] : arr[n-1];
+    while(low < high)
     {
-        int mid = (low + high)/2;
-        if(mid*mid < n) {
-            ans = mid;
-            low = mid;
+        int mid = low + (high - low) / 2;
+        if(arr[mid] > arr[mid-1]) 
+        {
+            ans = max(ans, arr[mid]);
+            low = mid + 1;
         }
         else {
-            high = mid;
+            ans = max(ans, arr[mid-1]);
+            break;
         }
     }
-    if(low*low == n) ans = low;
-    else if(high*high == n) ans = high;
-    cout << "So root of " << n << " is " << ans << endl;
+    return ans;
 }
 
 int main(){
     int n;
     cin >> n;
 
-    findsquareroot(n);
+    int arr[n];
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+    int ans = findPivotIndex(arr, n);
+
+    cout << "pivot element is " << ans << endl;
 
     return 0;
 }
