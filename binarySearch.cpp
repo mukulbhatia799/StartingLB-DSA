@@ -1,30 +1,20 @@
-// find the pivot index in rotated and sorted array means from where the sorted array break or last sorted element.
-// eg: 50 60 10 20 30 40
+/*
+    find the odd occuring element in array.
+    eg: 2 4 5 4 2. Here the odd occuring element is 5 because it is occuring 1 time and 1 is odd.
+
+*/
+
 #include<iostream>
 using namespace std;
 
-/* 
-using binary search algorithm we can solve this ques in O(logn) time complexity.
-Approach is first store the greater element from 0th and (n-1)th index in ans variable and then apply binary search.
-*/
-int findPivotIndex(int* arr, int n)
+int FindOddOccElement(int* arr, int n)
 {
-    int low = 0, high = n-1;
-    int ans = (arr[0] > arr[n-1])? arr[0] : arr[n-1];
-    while(low < high)
+    int XOR = 0;
+    for(int i = 0; i < n; i++)
     {
-        int mid = low + (high - low) / 2;
-        if(arr[mid] > arr[mid-1]) 
-        {
-            ans = max(ans, arr[mid]);
-            low = mid + 1;
-        }
-        else {
-            ans = max(ans, arr[mid-1]);
-            break;
-        }
+        XOR = XOR ^ arr[i];
     }
-    return ans;
+    return XOR;
 }
 
 int main(){
@@ -34,9 +24,12 @@ int main(){
     int arr[n];
     for(int i = 0; i < n; i++) cin >> arr[i];
 
-    int ans = findPivotIndex(arr, n);
+    int ele = FindOddOccElement(arr, n);
 
-    cout << "pivot element is " << ans << endl;
+    if(ele != -1) 
+        cout << "Odd times occuring element is " << ele << endl;
+    else 
+        cout << "Odd occuring element not found!" << endl;
 
     return 0;
 }
