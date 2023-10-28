@@ -1,5 +1,3 @@
-// iterative approach for fibonacci series.
-
 #include<iostream>
 #include<climits>
 #include<math.h>
@@ -12,29 +10,20 @@
 #include<unordered_set>
 #include<iomanip>
 
-int iterative_app_fibSeries(int n)
-{
-    int first = 0, second = 1, nthNumber = 0;
-    if(n == 1) return 0;
-    else if(n == 2) return 1;
-    for(int i = 3; i <= n; i++)
-    {
-        nthNumber = first + second;
-        first = second;
-        second = nthNumber;
-    }
-    return nthNumber;
-}
-
 using namespace std;
 
+void recursive(int arr[], int n)
+{
+    if(n == 0) return ;
+    recursive(arr, --n);
+    cout << arr[n] << " ";
+}
 
 int main(){
-    int n;
-    cin >> n;
+    int arr[5]{1, 2, 3, 4, 5};
 
-    cout << "nth fib. no is: " << iterative_app_fibSeries(n) << endl;
-
+    int n = sizeof(arr) / sizeof(int);
+    recursive(arr, n);
     
     return 0;
 }
