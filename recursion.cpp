@@ -1,4 +1,4 @@
-// Search in array recursively.
+// find min in array recursively.
 
 #include<iostream>
 #include<climits>
@@ -14,25 +14,23 @@
 
 using namespace std;
 
-bool searchRecursively(int* arr, int n, int target)
+int minNoInArray(int* arr, int n, int &minNumber)
 {
-    if(arr[n] == target)
-    {
-        return true;
-    }
-    if(n == 0) return false;
-
-    searchRecursively(arr, --n, target);
+    cout << "min: " << minNumber << " " << "arr[i]: " << arr[n] << endl;
+    minNumber = min(minNumber, arr[n]);
+    if(n == 0) 
+        return minNumber;
+    minNoInArray(arr, n-1, minNumber);
 }
 
-int main(){
-    int n = 5, target;
-    int arr[n]={10, 20, 30, 40, 50};
-    cout << "Enter target value: ";
-    cin >> target;
 
-    if(searchRecursively(arr, n-1, target)) cout << "Value found" << endl;
-    else cout << "value not found" << endl;
+int main(){
+    int n = 5;
+    int arr[n]={1, 20, 5, 40, 20};
+
+    int ans = INT_MAX;
+    minNoInArray(arr, n-1, ans);        // storing answer in ans variable.
+    cout << "Min number in array is " << ans << endl;
     
     return 0;
 }
