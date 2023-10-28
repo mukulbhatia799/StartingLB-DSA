@@ -1,3 +1,5 @@
+// Search in array recursively.
+
 #include<iostream>
 #include<climits>
 #include<math.h>
@@ -12,18 +14,25 @@
 
 using namespace std;
 
-void recursive(int arr[], int n)
+bool searchRecursively(int* arr, int n, int target)
 {
-    if(n == 0) return ;
-    recursive(arr, --n);
-    cout << arr[n] << " ";
+    if(arr[n] == target)
+    {
+        return true;
+    }
+    if(n == 0) return false;
+
+    searchRecursively(arr, --n, target);
 }
 
 int main(){
-    int arr[5]{1, 2, 3, 4, 5};
+    int n = 5, target;
+    int arr[n]={10, 20, 30, 40, 50};
+    cout << "Enter target value: ";
+    cin >> target;
 
-    int n = sizeof(arr) / sizeof(int);
-    recursive(arr, n);
+    if(searchRecursively(arr, n-1, target)) cout << "Value found" << endl;
+    else cout << "value not found" << endl;
     
     return 0;
 }
