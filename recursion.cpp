@@ -1,5 +1,3 @@
-// find min in array recursively.
-
 #include<iostream>
 #include<climits>
 #include<math.h>
@@ -14,23 +12,21 @@
 
 using namespace std;
 
-int minNoInArray(int* arr, int n, int &minNumber)
+
+void recursion(int n)
 {
-    cout << "min: " << minNumber << " " << "arr[i]: " << arr[n] << endl;
-    minNumber = min(minNumber, arr[n]);
-    if(n == 0) 
-        return minNumber;
-    minNoInArray(arr, n-1, minNumber);
+    if(n == 0) return ;
+    cout << "n value during recursion: " << n << endl;
+    recursion(n-1);
+    cout << "n value while returning: " << n << endl;
 }
 
 
 int main(){
-    int n = 5;
-    int arr[n]={1, 20, 5, 40, 20};
+    int n;
+    cin >> n;
 
-    int ans = INT_MAX;
-    minNoInArray(arr, n-1, ans);        // storing answer in ans variable.
-    cout << "Min number in array is " << ans << endl;
+    recursion(n);
     
     return 0;
 }
