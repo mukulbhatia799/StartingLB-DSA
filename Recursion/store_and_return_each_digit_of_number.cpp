@@ -2,11 +2,13 @@
 #include<vector>
 using namespace std;
 
-void returnDigits(int n, vector<int> &vec)
+void returnDigits(int n)    // without storing digits.
 {
     if(n == 0) return ;
-    vec.push_back(n%10);
-    returnDigits(n/10, vec);
+    int digit = n % 10;
+    n /= 10;
+    returnDigits(n);
+    cout << digit << " ";   // printing after recursive func. to print the digit from start to end order.
 }
 
 int main(){
@@ -14,13 +16,7 @@ int main(){
     cout << "Enter number: ";
     cin >> n;
 
-    vector<int> ans;
-    returnDigits(n, ans);
-
-    if(ans.size() == 0) cout << "Vector is empty~" << endl;
-    cout << "Displaying digits: ";
-    for(auto it: ans) cout << it << " ";
-    cout << endl;
+    returnDigits(n);
 
     return 0;
 }
