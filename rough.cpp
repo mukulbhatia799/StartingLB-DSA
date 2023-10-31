@@ -1,44 +1,54 @@
-#include <iostream> 
-using namespace std; 
-class Complex { 
-private: 
-	int Student1_marks, Student2_marks; 
+// // find subsequences of string using recursion.
+// /*
+// abc -> string
 
-public: 
-	Complex(int stu1marks = 0, int stu2marks = 0) 
-	{ 
-		Student1_marks = stu1marks; 
-		Student2_marks = stu2marks; 
-	} 
-    void display()
-    {
-        cout << "Student 1 marks is: " << Student1_marks << endl;
-        cout << "Student 2 marks is: " << Student2_marks << endl;
+// a, b, c, ab, bc, ac, abc, "".
+// */
+// #include<iostream>
+// #include<vector>
+// using namespace std;
 
-        cout << "Sum of both students marks is: " << Student1_marks + Student2_marks << endl;
-    }
-	friend Complex operator+(Complex const& c1, Complex const& c2); 
-	friend Complex operator>(Complex const& c1, Complex const& c2); 
-};
-Complex operator+(Complex const& stu1, Complex const& stu2) 
-{ 
-	return Complex(stu1.Student1_marks + stu2.Student1_marks, stu1.Student2_marks + stu2.Student2_marks); 
-} 
-Complex operator>(Complex const& stu1, Complex const& stu2) 
-{ 
-    cout << "Student 1 marks: " << stu1.Student1_marks << endl;
-    cout << "Student 2 marks: " << stu2.Student2_marks << endl;
-    if(stu1.Student1_marks > stu2.Student2_marks) 
-        cout << "Student 1 marks is greater than student 2";
-        else 
-            cout << "Student 2 marks is greater than student 1 marks";
-} 
-int main() 
-{ 
-	Complex student1(10, 5), student2(2, 4); 
-	Complex sumOfStudentsMarks = student1 + student2; 
-	sumOfStudentsMarks.display();
+// void findsub(string s, int i, string ans)
+// {
+// 	// base cond.
+// 	if(i == s.length()) return ;
 
-    
-	return 0; 
+// 	// include
+// 	char ch = s[i];
+// 	ans += ch;
+// 	// recursive function
+// 	findsub(s, i+1, ans);
+// 	ans 
+
+// 	// exclude
+// }
+
+// int main(){
+// 	string s = "abc";
+// 	string ans;
+// 	findsub(s, 0, ans);
+
+// 	return 0;
+// }
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void findsubseq(string s)
+{
+	// base cond.
+
+	// recursive function
+
+	// 
+}
+
+int main(){
+	string s;
+	getline(cin, s);
+
+	findsubseq(s);
+
+	return 0;
 }
