@@ -1,4 +1,4 @@
-// Print contiguous subarrays using recursion.
+// Print contiguous subarrays using recursion(subarrays are contiguous only.)
 
 #include<iostream>
 #include<vector>
