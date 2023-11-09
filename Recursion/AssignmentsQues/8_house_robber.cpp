@@ -12,28 +12,25 @@
 
 #include<iostream>
 #include<vector>
-#include<math.h>
 using namespace std;
 
-int robAmount(vector<int>& nums, int i)
+int robbingHouse(vector<int> vec, int i)
 {
-    // base cond.
-    if(i >= nums.size()) return 0;
-    // recursive func.
-    int amount1 = nums[i] + robAmount(nums, i+2);
-    int amount2 = 0 + robAmount(nums, i+1);
-    return max(amount1, amount2);
-}
-int rob(vector<int>& nums) {
-    return robAmount(nums, 0);
+    if(i >= vec.size())
+        return 0;
+    
+    int sum1 = vec[i] + robbingHouse(vec, i+2);
+
+    int sum2 = robbingHouse(vec, i+1);
+
+    return max(sum1, sum2);    
 }
 
 int main(){
-    vector<int> vec = {2, 1, 1, 2};
+    vector<int> vec = {2, 4, 1, 2, 4, 1};
+    // vector<int> vec = {2, 1, 1, 2};
 
-    cout << "Max robbed amount could be " << rob(vec) << endl;
+    cout << "Max amount could be robbed is " << robbingHouse(vec, 0);
 
     return 0;
 }
-
-
