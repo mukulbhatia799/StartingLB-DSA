@@ -32,12 +32,10 @@ void placePivotAtRightPlace(int* arr, int start, int pivotIndex)
     placePivotAtRightPlace(arr, i+1, pivotIndex);
 
 }
-
 void sortUsingQuickSort(int* arr, int size)
 {
     placePivotAtRightPlace(arr, 0, size-1);
 }
-
 int main(){
     int arr[] = {8, 7, 6, 5, 4, 3, 2, 1};
     int size = sizeof(arr) / sizeof(int);
