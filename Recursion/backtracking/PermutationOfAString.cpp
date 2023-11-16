@@ -1,5 +1,5 @@
 // Permutation of a string
-
+// backtracking :- means to add some additional code to keep the things as it is. Because sometimes we call string by reference and even the arrays are called by reference by default. So, backtracking is a important concept to place all the things back to it's place.
 #include<iostream>
 using namespace std;
 
