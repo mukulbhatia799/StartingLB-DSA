@@ -21,7 +21,7 @@ void Merge(int* arr, int l, int mid, int r, int actualsize) {
     }
     int leftptr = 0, rightptr = 0;
     traverse = l;
-    while(leftptr < leftsize && rightptr < rightsize) {     // comparing each value of leftarr and rigth arr, and storing the lesser value in actual arr first until one of the array is not finished.
+    while(leftptr < leftsize && rightptr < rightsize) {     // comparing each value of leftarr and rigth arr, and storing the lesser value in actual arr until one of the array is not finished.
         if(leftarr[leftptr] <= rightarr[rightptr]) {
             arr[traverse] = leftarr[leftptr];
             traverse++, leftptr++;
