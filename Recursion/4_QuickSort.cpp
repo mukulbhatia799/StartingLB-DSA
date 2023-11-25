@@ -34,10 +34,10 @@ void placePivotAtRightPlace(int* arr, int start, int pivotIndex)
 }
 void sortUsingQuickSort(int* arr, int size)
 {
-    placePivotAtRightPlace(arr, 0, size-1);
+    placePivotAtRightPlace(arr, 0, size-1); // Assuming last element as pivot.
 }
 int main(){
-    int arr[] = {8, 7, 6, 5, 4, 3, 2, 1};
+    int arr[] = {7, 4, 3, 5, 8, 1, 3, 0};
     int size = sizeof(arr) / sizeof(int);
     cout << "Before ";
     for(int i = 0; i < size; i++) cout << arr[i] << " ";
