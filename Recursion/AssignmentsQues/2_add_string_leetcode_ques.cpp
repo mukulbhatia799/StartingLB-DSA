@@ -46,3 +46,49 @@ int main(){
 
     return 0;
 }
+
+
+
+// ================== revision 1 ============
+// add strings and return sum using RE
+#include<iostream>
+using namespace std;
+
+void addStringsRE(string& s1, string& s2, int p1, int p2, int carry, string& ans)
+{
+    // base case.
+    if(p1 < 0 && p2 < 0)
+    {
+        ans += char(carry + '0');
+        return ;
+    }
+    // one cond.
+    int sum = 0;
+    if(p1 >= 0) sum += s1[p1] - '0';
+    if(p2 >= 0) sum += s2[p2] - '0';
+    sum += carry;
+    int mod = sum % 10;
+    ans += char(mod + '0');
+    carry = sum / 10;
+    // recursive func.
+    addStringsRE(s1, s2, p1-1, p2-1, carry, ans);
+}
+
+int main(){
+    string s1 = "999";
+    string s2 = "99";
+
+    int p1 = s1.length()-1, p2 = s2.length()-1;
+    string ans;
+    int carry = 0;
+    addStringsRE(s1, s2, p1, p2, carry, ans);
+
+    cout << "sum of strings: ";
+    for(int i = ans.length()-1; i >= 0; i--)
+    {
+        cout << ans[i];
+    }
+    cout << endl;
+
+    return 0;
+}
