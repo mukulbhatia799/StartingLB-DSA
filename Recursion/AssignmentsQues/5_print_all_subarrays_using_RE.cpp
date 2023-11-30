@@ -55,3 +55,43 @@ int main(){
 
     return 0;
 }
+
+
+// revision
+
+// print all subarrays using RE
+/*
+eg: 123
+1, 12, 123, 2, 23, 3
+
+*/
+
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+
+// void printsub(vector<int>& vec, int start, int end)
+// {
+//     if(end == vec.size()) return ;
+//     for(int i = start; i <= end; i++) cout << vec[i] << " ";
+//     cout << endl;
+//     printsub(vec, start, end+1);
+// }
+
+// void printSubarray(vector<int>& vec)
+// {
+//     for(int start = 0; start < vec.size(); start++)
+//     {
+//         int end = start;
+//         printsub(vec, start, end);
+//     }
+// }
+
+// int main(){
+//     vector<int> vec = {1, 2, 3, 4, 5};
+
+//     printSubarray(vec);
+    
+
+//     return 0;
+// }
