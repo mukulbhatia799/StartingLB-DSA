@@ -24,3 +24,29 @@ int main(){
 
     return 0;
 }
+
+
+// revision 1
+// #include<iostream>
+// using namespace std;
+
+// bool checkPalindromeRE(string& s, int i)
+// {
+//     if(i >= s.length()/2)
+//     {
+//         return true;
+//     }
+//     if(s[i] != s[s.length()-1-i]) return false;
+//     checkPalindromeRE(s, i+1);
+// }
+
+// int main(){
+//     string s = "momomo";
+
+//     bool ans = checkPalindromeRE(s, 0);
+
+//     if(ans == true) cout << "palindrome" << endl;
+//     else cout << "not a palindrome" << endl;
+
+//     return 0;
+// }
