@@ -50,3 +50,47 @@ int main(){
 }
 
 
+
+// ================ Revision-1 ================ 
+
+// #include<iostream>
+// using namespace std;
+
+// int ans = -1;
+// int findLastOcc_rightToLeft(string& s, char ch, int ptr)
+// {
+//     if(ptr == -1) return -1;
+//     if(s[ptr] == ch) return ptr;
+//     findLastOcc_rightToLeft(s, ch, ptr-1);
+// }
+
+// // by saving ans in a variable.
+// void findLastOcc_LeftToRight(string& s, char ch, int ptr, int& ans)
+// {
+//     if(ptr == s.length()) return ;
+//     if(s[ptr] == ch) ans = ptr;
+//     findLastOcc_LeftToRight(s, ch, ptr+1, ans);
+
+// }
+
+// int main(){
+//     // last occ. of a char
+//     string s = "abcddef";
+
+//     char ch;
+//     cout << "input char to find it's last occ. ";
+//     cin >> ch;
+
+//     // right to left
+//     // int ans = findLastOcc_rightToLeft(s, ch, s.length()-1);
+//     // if(ans == -1) cout << "value not found" << endl;
+//     // else cout << "Last occ of " << ch << " is " << ans << endl;
+
+//     // left to right
+//     int ans = -1;
+//     findLastOcc_LeftToRight(s, ch, 0, ans);
+//     if(ans == -1) cout << "value not found" << endl;
+//     else cout << "Last occ of " << ch << " is at index " << ans << endl;
+    
+//     return 0;
+// }
