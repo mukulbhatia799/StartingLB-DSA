@@ -34,3 +34,37 @@ int main(){
 
     return 0;
 }
+
+
+// revision 
+
+// house robber
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int robTheHouse(vector<int> &vec, int i)
+// {
+//     // base case.
+//     if (i >= vec.size())
+//     {
+//         return 0;
+//     }
+//     // one case
+//     int sum1 = vec[i] + robTheHouse(vec, i + 2);
+//     int sum2 = 0 + robTheHouse(vec, i + 1);
+
+//     return max(sum1, sum2);
+// }
+
+// int main()
+// {
+//     vector<int> vec = {2, 1, 1, 2};
+
+//     int maxSum = 0;
+//     maxSum = robTheHouse(vec, 0);
+//     cout << "Max sum: " << maxSum << endl;
+
+//     return 0;
+// }
