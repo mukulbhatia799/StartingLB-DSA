@@ -30,3 +30,5 @@ int main()
 
     return 0;
 }
+
+// This ques can be solved using DP with optimized time complexity. Using recursion, time complexity is O(k^n) as k number of calls are done from one node and O(n+1) space complexity.
