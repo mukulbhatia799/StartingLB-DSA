@@ -59,7 +59,7 @@ public:
         display(head);
     }
 
-    void reverseLL(Node *head) // ******* reverse a LL *******
+    void reverseLL(Node *head) // ******* reverse a LL *******      // using iteration.
     {
         if (head == NULL)
         {
@@ -83,6 +83,34 @@ public:
             head = prev; // at last place head at last node.
         }
         display(head);
+    }
+    void reverseLLusingRE(Node *head) // using recursion.
+    {
+        if (head == NULL)
+        {
+            cout << "LL is empty! can't reverse." << endl;
+        }
+        else
+        {
+            Node *prev = NULL;
+            Node *curr = head;
+            cout << "reverse of LL......" << endl;
+            reverseUsingREHelper(prev, curr, head);
+        }
+    }
+    void reverseUsingREHelper(Node *prev, Node *curr, Node *&head)
+    {
+        if (curr == NULL)
+        {
+            head = prev;
+            display(head);
+            return;
+        }
+        Node *temp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = temp;
+        reverseUsingREHelper(prev, curr, head); // recursive function.
     }
 
     int findLength(Node *head)
@@ -120,7 +148,7 @@ int main()
     linkedlist.insertNode(head);
     cout << "curr size of LL: " << linkedlist.findLength(head) << endl;
 
-    linkedlist.reverseLL(head);
+    linkedlist.reverseLLusingRE(head);
     cout << "curr size of LL: " << linkedlist.findLength(head) << endl;
 
     return 0;
