@@ -1,3 +1,10 @@
+/*
+three ques comes in this ques:
+1. check for loop
+2. starting point of loop.
+3. remove loop.
+*/
+
 
 #include <iostream>
 using namespace std;
