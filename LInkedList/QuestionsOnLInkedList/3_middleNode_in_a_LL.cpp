@@ -1,0 +1,1 @@
+// leetcode ques solved using slow & fast method/tortoise method.
