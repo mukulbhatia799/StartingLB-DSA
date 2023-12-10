@@ -317,6 +317,7 @@ public:
             }
             else
             {
+                // we can solve using one pointer also.
                 Node *prev = NULL;
                 Node *curr = head;
                 while (pos != 1)
