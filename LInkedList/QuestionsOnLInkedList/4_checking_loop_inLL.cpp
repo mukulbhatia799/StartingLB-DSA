@@ -189,9 +189,6 @@ three ques comes in this ques:
 //     return 0;
 // }
 
-// 2. find starting point of loop(return starting point of loop node data.)
-// done leetcode ques of this type
-
 /*
 1. check for loop.
 2. find starting point of loop.
