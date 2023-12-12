@@ -30,35 +30,3 @@ int main()
 
     return 0;
 }
-
-// revision
-
-// print all permutations of a string using RE.
-// using include exclude principle
-// #include<iostream>
-// using namespace std;
-
-// void printPerm(string& s, int i, string ans)
-// {
-//     if(i == s.length()) {
-//         cout << ans;
-//         return ;
-//     }
-//     // include
-//     ans.push_back(s[i]);
-//     // recursive func.
-//     printPerm(s, i+1, ans);
-//     // exclude
-//     ans.pop_back();
-//     // recursive func.
-//     printPerm(s, i+1, ans);
-// }
-
-// int main(){
-//     string s = "abc";
-
-//     string ans;
-//     printPerm(s, 0, ans);
-
-//     return 0;
-// }

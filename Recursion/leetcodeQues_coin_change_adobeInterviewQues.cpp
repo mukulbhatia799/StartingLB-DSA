@@ -14,8 +14,8 @@ int main(){
     vector<int> coins{6, 8, 5};
     int amount = 11;
 
-    int maxCoinsNeeded = findnoofcoins(coins, amount, 0);
-    cout << "Coins needed: " << maxCoinsNeeded << endl;
+    int minCoinsNeeded = findnoofcoins(coins, amount, 0);
+    cout << "Coins needed: " << minCoinsNeeded << endl;
 
     return 0;
 }

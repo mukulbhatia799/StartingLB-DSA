@@ -65,5 +65,7 @@ Node* Node::mergeTwoLists(Node* list1, Node* list2)
 
 int main()
 {
-    // create LL and run merge function.
+
 }
+
+

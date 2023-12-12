@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "first",
+            "request": "launch",
+            "mainClass": "first",
+            "projectName": "StartingLBcourse_913fbb99"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch chrome against local host",
