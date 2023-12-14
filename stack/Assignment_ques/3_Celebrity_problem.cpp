@@ -1,57 +1,48 @@
 #include <iostream>
 #include <vector>
+#include<stack>
 using namespace std;
 
 int solve()
 {
-    // brute force approach - O(n^2) time complexity.
+    // using stack data structure.
     int n;
     cin >> n;
-    vector<vector<int>> M(n, vector<int>(n));
-    for (int i = 0; i < n; i++)
+    vector<vector<int> > M(n, vector<int>(n, 0));
+    for(int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for(int j = 0; j < n; j++)
         {
             cin >> M[i][j];
         }
     }
-    for (int i = 0; i < n; i++)
+
+    stack<int> st;
+
+    for(int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            cout << M[i][j] << " ";
-        }
-        cout << endl;
+        st.push(i);
     }
 
-    for (int i = 0; i < n; i++)
+    while(st.size() != 1)
     {
-        bool rowcheck = true;
-        bool colcheck = true;
-        // check ith row, if all are zeroes then that person can be a celebrity.
-        for (int j = 0; j < n; j++)
-        {
-            if (M[i][j] == 1)
-            {
-                rowcheck = false;
-                break;
-            }
+        int p1 = st.top(); st.pop();
+        int p2 = st.top(); st.pop();
+
+        if(M[p1][p2] == 1) {
+            st.push(p2);
+        } else {
+            st.push(p1);
         }
-        if (!rowcheck)
-            continue;
-        // check ith col, if everyone knows ith person leaving himself then that person is a celebrity.
-        for (int j = 0; j < n; j++)
-        {
-            if (M[j][i] == 0 && i != j)
-            {
-                colcheck = false;
-                break;
-            }
-        }
-        if (rowcheck && colcheck)
-            return i;
     }
-    return -1;
+
+    for(int i = 0; i < n; i++)
+    {
+        if(M[st.top()][i] == 1) return -1;
+        if(M[i][st.top()] == 0 && st.top() != i) return -1;
+    }
+
+    return st.top();
 }
 
 int main()
