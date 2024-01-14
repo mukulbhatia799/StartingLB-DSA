@@ -1,3 +1,6 @@
+
+// preorder, inorder, postorder time and space complexity is O(N).
+
 #include<iostream>
 using namespace std;
 

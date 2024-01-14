@@ -10,7 +10,7 @@ class Stack
 public:
     Stack()
     {
-        cout << "size of stack: ";
+        cout << "size of stack: ";  
         cin >> this->size;
         this->top = -1;
         this->arr = new int(this->size);
