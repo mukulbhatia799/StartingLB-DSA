@@ -64,3 +64,68 @@ int main(){
 
     return 0;
 }
+
+
+// revision
+
+/*
+
+#include<iostream>
+using namespace std;
+
+void Merge(int* arr, int low, int mid, int high) {
+    int leftSize = mid-low+1;
+    int rightSize = high-mid;
+
+    int leftArr[leftSize], rightArr[rightSize];
+
+    for(int i = 0; i < leftSize; i++) {
+        leftArr[i] = arr[low+i];
+    }
+
+    for(int i = 0; i < rightSize; i++) {
+        rightArr[i] = arr[mid+1+i];
+    }
+
+    int leftptr = 0, rightptr = 0, traverse = low;
+    while(leftptr < leftSize && rightptr < rightSize) {
+        if(leftArr[leftptr] <= rightArr[rightptr]) {
+            arr[traverse++] = leftArr[leftptr++];
+        }
+        else arr[traverse++] = rightArr[rightptr++];
+    }
+
+    while(leftptr < leftSize) {
+        arr[traverse++] = leftArr[leftptr++];
+    }
+
+    while(rightptr < rightSize) {
+        arr[traverse++] = rightArr[rightptr++];
+    }
+}
+
+void mergeSort(int* arr, int low, int high) {
+    if(low >= high) return ;
+
+    int mid = low + (high - low) / 2;
+
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid+1, high);
+    Merge(arr, low, mid, high);
+}
+
+int main() {
+    int arr[] = {3, 2, 5, 4, 7, 6, 1, 2};
+
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    mergeSort(arr, 0, n);
+
+    cout << "after sort: ";
+    for(int i = 0; i < n; i++) cout << arr[i] << " ";
+    cout << endl;
+
+    return 0;
+}
+
+*/
